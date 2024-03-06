@@ -12,13 +12,14 @@ GroceryCounter::GroceryCounter()
     overflow = 0;
 }
 
-int GroceryCounter::ten()
+/*int GroceryCounter::ten()
 {
     tens++;
 
-    if(tens > 9)
+    if(tens >= 10)
     {
-        overflow = (tens /10)/5;
+        //overflow = (tens /10)/5;
+        overflow++;
     }
 
     return tens;
@@ -28,9 +29,10 @@ int GroceryCounter::one()
 {
     ones++;
 
-    if(ones > 9)
+    if(ones >= 10)
     {
-        overflow = (ones /10)/5;
+        //overflow = (ones /10)/5;
+        overflow++;
     }
 
     return ones;   
@@ -42,7 +44,8 @@ int GroceryCounter::tenth()
 
     if(tenths >= 10)
     {
-        overflow = (tenths /10)/5;
+        //overflow = (tenths /10)/5;
+        overflow++;
     }
 
     return tenths;
@@ -54,11 +57,66 @@ int GroceryCounter::hundredth()
 
     if(hundredths >= 10)
     {
-        overflow = (hundredths /10)/5;
+        //overflow = (hundredths /10)/5;
+        overflow++;
     }
 
     return hundredths;    
 }
+*/
+
+int GroceryCounter::ten()
+{
+    tens++;
+
+    if(tens >= 10)
+    {
+        tens = tens % 10;
+        overflow++;
+    }
+
+    return tens;
+}
+
+int GroceryCounter::one()
+{
+    ones++;
+
+    if(ones >= 10)
+    {
+        ones = ones % 10;
+        overflow++;
+    }
+
+    return ones;   
+}
+
+int GroceryCounter::tenth()
+{
+    tenths++;
+
+    if(tenths >= 10)
+    {
+        tenths = tenths % 10;
+        overflow++;
+    }
+
+    return tenths;
+}
+
+int GroceryCounter::hundredth()
+{
+    hundredths++;
+
+    if(hundredths >= 10)
+    {
+        hundredths = hundredths % 10;
+        overflow++;
+    }
+
+    return hundredths;    
+}
+
 
 void GroceryCounter::total()
 {
@@ -68,7 +126,7 @@ void GroceryCounter::total()
         cout << "$" << (tens*10) + ones << "." << tenths << hundredths <<endl;
     }
 
-    if (tens == 0)
+    else
     {
         cout << "$" << ones << "." << tenths << hundredths <<endl;
     }
@@ -87,49 +145,6 @@ void GroceryCounter::clear()
     hundredths = 0;
     overflow = 0;
 }
-
-// int main()
-// {
-//     GroceryCounter counter;
-
-//     //case #1
-//     counter.ten();
-//     counter.ten();
-//     counter.hundredth();
-
-//     counter.total(); // This would print out $20.01
-//     cout << counter.number_of_overflows() << endl; //This would print 0
-
-//     counter.clear();
-
-//     //case #2
-//     for(int i = 0; i < 55; i++) 
-//     {
-//         counter.one();
-//     }
-
-//     counter.total(); // This would print out $55.00
-//     cout << counter.number_of_overflows() << endl; //This would print 1
-    
-//     counter.clear();
-    
-//     //case #3
-//     for(int i = 0; i < 100; i++)  
-//     {
-//         counter.one();
-//     }
-
-//     counter.total(); // This would print out $100
-//     cout << counter.number_of_overflows() << endl; //This would print 2
-
-//     counter.clear();
-
-//     //case #4
-//     counter.total(); // This would print out $0.00
-//     cout << counter.number_of_overflows() << endl; //This would print 0
-    
-//     counter.clear();
-// }
 
 int main ()
 {
