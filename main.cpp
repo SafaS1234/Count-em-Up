@@ -88,7 +88,7 @@ int main()
     cout << counter.total() << endl; // This would print out $55.01
     cout << counter.number_of_overflows() << endl; //This would print 0
 
-    for(int i = 0; i < 100; i++) 
+    for(int i = 0; i < 100; i++)  
     {
         counter.ones();
     }
