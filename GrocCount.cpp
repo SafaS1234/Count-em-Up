@@ -10,65 +10,72 @@ GroceryCounter::GroceryCounter()
     tenths = 0;
     hundredths = 0;
     overflow = 0;
+    calls = 0;
 }
 
 int GroceryCounter::ten()
 {
-    tens++;
-
+    tens = (tens + 1000) % 10000;
+    
     if(tens > 9)
     {
-        overflow = (tens /10)/5;
+        overflow+1;
+        //tens = 0;
     }
 
-    return tens;
+    return tens, overflow;
 }
 
 int GroceryCounter::one()
 {
-    ones++;
+    ones = (ones + 100) % 10000;
 
     if(ones > 9)
     {
-        overflow = (ones /10)/5;
+        overflow+1;
+        ones = 0;
+        tens+=1;
     }
 
-    return ones;   
+    return ones, overflow;   
 }
 
 int GroceryCounter::tenth()
 {
-    tenths++;
+    tenths = (tenths + 10) % 10000;
 
-    if(tenths >= 10)
+    if(tenths > 9)
     {
-        overflow = (tenths /10)/5;
+        overflow+1;
+        tenths = 0;
+        ones+=1;
     }
 
-    return tenths;
+    return tenths, overflow;
 }
 
 int GroceryCounter::hundredth()
 {
-    hundredths++;
+    hundredths = (hundredths + 1) % 10000;
 
-    if(hundredths >= 10)
+    if(hundredths > 9)
     {
-        overflow = (hundredths /10)/5;
+        overflow+1;
+        hundredths = 0;
+        tenths+=1;
     }
 
-    return hundredths;    
+    return hundredths, overflow;    
 }
 
 void GroceryCounter::total()
 {
-    
-    if (tens >= 1)
+    if (tens >=1)
     {
         cout << "$" << tens << ones << "." << tenths << hundredths <<endl;
     }
 
-    if (tens == 0)
+    else
     {
         cout << "$" << ones << "." << tenths << hundredths <<endl;
     }
@@ -103,30 +110,32 @@ int main()
     counter.clear();
 
     //case #2
-    for(int i = 0; i < 55; i++) 
+    for(int i = 0; i < 35; i++) 
     {
         counter.one();
     }
 
-    counter.total(); // This would print out $55.00
-    cout << counter.number_of_overflows() << endl; //This would print 1
-    
+    counter.total(); // This would print out $55.01
+    cout << counter.number_of_overflows() << endl; //This would print 0
+
     counter.clear();
-    
+
     //case #3
     for(int i = 0; i < 100; i++)  
     {
         counter.one();
     }
 
-    counter.total(); // This would print out $100
-    cout << counter.number_of_overflows() << endl; //This would print 2
+    counter.total(); // This would print out $55.02
+    cout << counter.number_of_overflows() << endl; //This would print 1
 
     counter.clear();
 
     //case #4
     counter.total(); // This would print out $0.00
     cout << counter.number_of_overflows() << endl; //This would print 0
-    
+
     counter.clear();
+
+
 }

@@ -8,6 +8,7 @@ class GroceryCounter
         int tenths;
         int hundredths;
         int overflow;
+        int calls;
 
     public:
         GroceryCounter();
