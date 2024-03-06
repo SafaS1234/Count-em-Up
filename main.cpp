@@ -80,15 +80,17 @@ int main()
     cout << counter.number_of_overflows() << endl; //This would print 0
 
     
-    for(int i = 0; i < 35; i++) {
-    counter.ones();
+    for(int i = 0; i < 35; i++) 
+    {
+        counter.ones();
     }
 
     cout << counter.total() << endl; // This would print out $55.01
     cout << counter.number_of_overflows() << endl; //This would print 0
 
-    for(int i = 0; i < 100; i++) {
-    counter.ones();
+    for(int i = 0; i < 100; i++) 
+    {
+        counter.ones();
     }
 
     cout << counter.total() << endl; // This would print out $55.02
