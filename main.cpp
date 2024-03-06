@@ -78,7 +78,7 @@ int main()
     counter.ten();
     counter.hundredth();
 
-    cout << counter.total() << endl; // This would print out $20.01
+    counter.total(); // This would print out $20.01
     cout << counter.number_of_overflows() << endl; //This would print 0
 
     //case #2
@@ -87,7 +87,7 @@ int main()
         counter.one();
     }
 
-    cout << counter.total() << endl; // This would print out $55.01
+    counter.total(); // This would print out $55.01
     cout << counter.number_of_overflows() << endl; //This would print 0
 
     //case #3
@@ -96,12 +96,12 @@ int main()
         counter.one();
     }
 
-    cout << counter.total() << endl; // This would print out $55.02
+    counter.total(); // This would print out $55.02
     cout << counter.number_of_overflows() << endl; //This would print 1
 
     counter.clear();
 
     //case #4
-    cout << counter.total() << endl; // This would print out $0.00
+    counter.total(); // This would print out $0.00
     cout << counter.number_of_overflows() << endl; //This would print 0
 }

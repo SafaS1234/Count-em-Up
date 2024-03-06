@@ -6,7 +6,7 @@ class GroceryCounter
         int tens;
         int ones;
         int tenths;
-        int hundreths;
+        int hundredths;
         int overflow;
 
     public:
