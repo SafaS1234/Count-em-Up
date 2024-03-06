@@ -1,8 +1,10 @@
+#include "GroceryCounter.hpp"
 #include <iostream>
-#include <string>
+
 
 using namespace std;
 
+/*
 class GroceryCounter
 {
     private:
@@ -64,7 +66,7 @@ class GroceryCounter
     {
         return overflows;
     }
-};
+}; */
 
 
 int main()
@@ -72,25 +74,26 @@ int main()
     GroceryCounter counter;
 
     //case #1
-    counter.tens();
-    counter.tens();
-    counter.hundreths();
+    counter.ten();
+    counter.ten();
+    counter.hundredth();
 
     cout << counter.total() << endl; // This would print out $20.01
     cout << counter.number_of_overflows() << endl; //This would print 0
 
-    
+    //case #2
     for(int i = 0; i < 35; i++) 
     {
-        counter.ones();
+        counter.one();
     }
 
     cout << counter.total() << endl; // This would print out $55.01
     cout << counter.number_of_overflows() << endl; //This would print 0
 
+    //case #3
     for(int i = 0; i < 100; i++)  
     {
-        counter.ones();
+        counter.one();
     }
 
     cout << counter.total() << endl; // This would print out $55.02
@@ -98,6 +101,7 @@ int main()
 
     counter.clear();
 
+    //case #4
     cout << counter.total() << endl; // This would print out $0.00
     cout << counter.number_of_overflows() << endl; //This would print 0
 }
