@@ -18,6 +18,7 @@ int GroceryCounter::ten()
 
     if(tens > 9)
     {
+        overflow = 0;
         overflow++;
         tens = 0;
     }
@@ -31,6 +32,7 @@ int GroceryCounter::one()
 
     if(ones > 9)
     {
+        overflow = 0;
         overflow++;
         ones = 0;
     }
@@ -44,6 +46,7 @@ int GroceryCounter::tenth()
 
     if(tenths > 9)
     {
+        overflow = 0;
         overflow++;
         tenths = 0;
     }
@@ -57,6 +60,7 @@ int GroceryCounter::hundredth()
 
     if(hundredths > 9)
     {
+        overflow = 0;
         overflow++;
         hundredths = 0;
     }
