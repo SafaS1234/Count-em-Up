@@ -82,7 +82,6 @@ class GroceryCounter
         overflows = 0;
     }
 
-    //return string
     string total() const 
     {
         string message;
