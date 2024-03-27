@@ -1,10 +1,8 @@
 #include "GroceryCounter.hpp"
 #include <iostream>
 
-
 using namespace std;
 
-/*
 class GroceryCounter
 {
     private:
@@ -66,7 +64,7 @@ class GroceryCounter
     {
         return overflows;
     }
-}; */
+}; 
 
 
 int main()

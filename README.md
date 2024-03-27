@@ -8,7 +8,7 @@ Simulate a grocery counter using a class.
 
 ### Set Up
 
-Open in VS Code and hit run.
+Open in VS Code and hit run. Use countClass.cpp, the rest can be ignored.
 
 ### Running the Test Suite
 

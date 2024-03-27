@@ -1,3 +1,6 @@
+#ifndef GROCERYCOUNTER_H
+#define GROCERYCOUNTER_H
+
 #include <iostream>
 
 class GroceryCounter
@@ -20,3 +23,5 @@ class GroceryCounter
         void clear();
         void total();
 };
+
+#endif
